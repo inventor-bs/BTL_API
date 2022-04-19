@@ -13,7 +13,7 @@ namespace WebBanQA.Controllers
     public class RegisterController : ApiController
     {
         [HttpPost]
-        public bool InsertNewAccount(string username, string password, string email, string status)
+        public bool InsertNewAccount(string username, string password, string email, string status, string phonenumber)
         {
             try
             {
@@ -24,6 +24,7 @@ namespace WebBanQA.Controllers
                 user.U_status = status;
                 user.U_name = username;
                 user.U_pass = password;
+                user.U_contact = phonenumber;
                 dB.Users.InsertOnSubmit(user);
                 dB.SubmitChanges();
                 return true;
